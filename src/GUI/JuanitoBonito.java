@@ -36,11 +36,10 @@ public class JuanitoBonito {
 
     private static String generateRSAKey() throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(2048); // Puedes cambiar el tamaño de la clave si lo deseas
+        keyPairGenerator.initialize(2048);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         PrivateKey privateKey = keyPair.getPrivate();
 
-        // Convertir la clave privada a formato PEM
         StringWriter sw = new StringWriter();
         sw.write("-----BEGIN PRIVATE KEY-----\n");
         sw.write(Base64.getEncoder().encodeToString(privateKey.getEncoded()));

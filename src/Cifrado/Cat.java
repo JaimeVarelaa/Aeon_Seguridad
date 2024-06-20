@@ -9,8 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 /**
- *
- * @author jaime
+ * 16
  */
 public class Cat {
     public static void cat(){

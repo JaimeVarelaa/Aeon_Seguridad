@@ -26,6 +26,9 @@ import javax.swing.JOptionPane;
  */
 public class Comprobador {
 
+    /**
+     * 17
+     */
     public static void comprobar(Datos datos) {
         try {
             String blake21 = datos.getBlake2();

@@ -312,7 +312,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SPKButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * 5
      */
     public static void MainGUI() {
         /* Set the Nimbus look and feel */
@@ -345,18 +345,14 @@ public class MainGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    //Se obtiene las interfaces de la red
                     Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
                     while (interfaces.hasMoreElements()) {
                         NetworkInterface networkInterface = interfaces.nextElement();
-                        //Se obtiene las direcciones
                         Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
                         while (addresses.hasMoreElements()) {
                             InetAddress address = addresses.nextElement();
-                            //Solo queremos las IPv4
                             if (address instanceof java.net.Inet4Address) {
                                 String ip = address.getHostAddress();
-                                //Quitamos las que terminen en .1
                                 if (!ip.endsWith(".1")) {
                                     Interfaces[0] = networkInterface.getDisplayName();
                                     Interfaces[1] = ip;

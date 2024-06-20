@@ -45,21 +45,14 @@ public class CrearLlaves {
     }
 
     public PublicKey getPublicKeyFromString(String publicKeyPEM) throws Exception {
-        // Eliminar las cabeceras y pies de la clave PEM
         String publicKeyPEMFormatted = publicKeyPEM
                 .replace("-----BEGIN PUBLIC KEY-----", "")
                 .replace("-----END PUBLIC KEY-----", "")
                 .replaceAll("\\s", "");
 
-        // Decodificar la clave PEM desde Base64
         byte[] publicKeyBytes = Base64.getDecoder().decode(publicKeyPEMFormatted);
-
-        // Crear un objeto X509EncodedKeySpec a partir de los bytes de la clave pública
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKeyBytes);
-
-        // Crear el objeto PublicKey a partir del KeySpec
         PublicKey publicKey = java.security.KeyFactory.getInstance("RSA").generatePublic(keySpec);
-
         return publicKey;
     }
 
@@ -71,6 +64,9 @@ public class CrearLlaves {
         return this.privateKey;
     }
 
+    /**
+     * 10 
+     */
     public static String getPublicKeyString() {
         String publicKeyPem = null;
         try {

@@ -6,6 +6,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHA512 {
 
+    /**
+     * 14 
+     */
     public static String getStringHash512(String input) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance("SHA-512");
         byte[] hashBytes = digest.digest(input.getBytes(StandardCharsets.UTF_8));

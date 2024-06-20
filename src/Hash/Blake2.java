@@ -16,7 +16,9 @@ import org.bouncycastle.crypto.digests.Blake2bDigest;
 import org.bouncycastle.util.encoders.Hex;
 
 public class Blake2 {
-
+/**
+ * 15
+ */
     public static String getFileHashBlake2(File file) throws IOException {
         Blake2bDigest digest = new Blake2bDigest(512);
         Path filePath = file.toPath();

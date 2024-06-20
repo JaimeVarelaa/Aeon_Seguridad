@@ -86,6 +86,9 @@ public class main {
         }
     }
 
+    /**
+     * 3 
+     */
     private static void receiveFile(Socket clientSocket, String fileName) {
         try (
                 InputStream input = clientSocket.getInputStream(); FileOutputStream fileOutput = new FileOutputStream(fileName)) {

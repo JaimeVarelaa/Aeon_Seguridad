@@ -220,6 +220,9 @@ public class PseudoChat extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 7 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(null);
@@ -243,6 +246,9 @@ public class PseudoChat extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * 8 
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             Datos datos = main.datos;
@@ -265,7 +271,7 @@ public class PseudoChat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * 6
      */
     public static void chat(String ip) {
         /* Set the Nimbus look and feel */

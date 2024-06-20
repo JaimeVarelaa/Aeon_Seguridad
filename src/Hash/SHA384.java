@@ -7,6 +7,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHA384 {
 
+    /**
+     * 11 
+     */
     public static String getStringHash384(String input) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest digest = MessageDigest.getInstance("SHA-384");
         byte[] hashBytes = digest.digest(input.getBytes(StandardCharsets.UTF_8));

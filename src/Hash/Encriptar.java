@@ -10,6 +10,9 @@ import javax.crypto.Cipher;
 
 public class Encriptar {
 
+    /**
+     * 12
+     */
     public static String encryptStringWithPublicKey(String input) throws Exception {
         String publicKeyPEM = main.datos.getPublicKey();
         publicKeyPEM = publicKeyPEM
@@ -34,6 +37,9 @@ public class Encriptar {
         return java.util.Base64.getEncoder().encodeToString(encryptedBytes);
     }
 
+    /**
+     * 13 
+     */
     public static String decryptStringWithPrivateKey(String encryptedInput) throws Exception {
         PrivateKey privateKey = main.datos.getPrivateKey();
         Cipher cipher = Cipher.getInstance("RSA");
