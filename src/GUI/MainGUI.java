@@ -8,17 +8,9 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-import java.util.Random;
 import javax.swing.SwingUtilities;
 import Renders.ButtonRenderer;
 import java.awt.CardLayout;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.Socket;
 import javax.swing.text.AbstractDocument;
 
 /**
@@ -28,6 +20,7 @@ import javax.swing.text.AbstractDocument;
 public class MainGUI extends javax.swing.JFrame {
 
     public static String[] Interfaces = new String[3];
+    public static String globalIP = "";
 
     public MainGUI() {
         initComponents();
@@ -310,7 +303,11 @@ public class MainGUI extends javax.swing.JFrame {
     private void SPKButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SPKButton1ActionPerformed
         String ip = jTextField1.getText();
         if (ip.chars().filter(ch -> ch == '.').count() == 3) {
-            initConn(ip);
+            Thread t = new Thread(() -> {
+                globalIP = ip;
+                PseudoChat.chat(ip);
+            });
+            t.start();
         }
     }//GEN-LAST:event_SPKButton1ActionPerformed
 
@@ -386,23 +383,6 @@ public class MainGUI extends javax.swing.JFrame {
                 MacLabel.setText(Interfaces[2]);
             }
         });
-    }
-
-    private static void initConn(String ip) {
-        int port = 1234;
-        try (Socket socket = new Socket(ip, port); OutputStream output = socket.getOutputStream(); PrintWriter writer = new PrintWriter(output, true); InputStream input = socket.getInputStream(); BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
-
-            Random r = new Random();
-            int randomNumber = r.nextInt(777);
-            System.out.println("Enviando: " + randomNumber);
-            writer.println(randomNumber);
-
-            String response = reader.readLine();
-            System.out.println("Respuesta: " + response);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
